@@ -43,3 +43,11 @@ Clase 3 - video 7 - Inserción de Datos con Django
 5. agregar metodo __str__ al modelo
 6. uso de ./manage.py shell, from first_app.models import Carro, instancia de carro=Carro(title="",year="")
 7. print(carro), metodo .save() a la instancia para guardar entrada en la base de datos
+
+tarea, agregar atributo color a Carro y guardar instancias en base de datos
+---
+1. instancia Carro(title="marca",year="año") guardada, db modificada 
+2. nuevo atributo color agregado, makemigrations y migrate
+3. nuevas instancias de Carro guardadas
+
+
