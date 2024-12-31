@@ -7,4 +7,4 @@ class Carro(models.Model):
     color = models.TextField(max_length=200, null=True)
 
     def __str__(self):
-        return f"{self.title} - {self.year}"
+        return f"{self.title} - {self.year} - {self.color}"

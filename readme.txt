@@ -1,11 +1,11 @@
 https://platzi.com/cursos/django/
 
-creacion de python env y posterior instalación de ultima version de Django
-arquitectura MVT, model-view-template, como estructura de desarrollo web en django
+- Creacion de python env y posterior instalación de ultima version de Django
+- Arquitectura MVT, model-view-template, como estructura de desarrollo web en django
 
 
-Clase 1 - video 5
------------------
+Clase 1 - video 5 - Introducción a Modelos y Bases de Datos
+-----------------------------------------------------------
 
 1. crear proyecto con django-admin startproject <name> 
 2. crear app en project_folder/ con python manage.py startapp <name>
@@ -17,11 +17,12 @@ Clase 1 - video 5
 
 
 
-Clase 2 - video 6
------------------
+Clase 2 - video 6 - Gestión de Modelos y Bases de Datos en Django con SQLite
+----------------------------------------------------------------------------
 
-Django ORM, object-relational mapping, una conexion entre bases de datos y objetos de python
-comandos migrate y makemigration en manage.py
+- Tablas y dbshell
+- Django ORM, object-relational mapping, una conexion entre bases de datos y objetos de python
+- Comandos migrate y makemigration en manage.py
 
 1. las migraciones pre-existentes se realizan con ./manage.py migrate
 2. crear una clase (Carro) en models.py, la cual será una nueva migracion
@@ -49,5 +50,19 @@ tarea, agregar atributo color a Carro y guardar instancias en base de datos
 1. instancia Carro(title="marca",year="año") guardada, db modificada 
 2. nuevo atributo color agregado, makemigrations y migrate
 3. nuevas instancias de Carro guardadas
+
+
+Clase 4 - video 8 - Actualización y Eliminación de Datos en Django
+------------------------------------------------------------------
+
+1. en la dbshell se ven las tablas con .tables, admite sql syntax, mostrando la tabla en terminal con:
+	select * from first_app_carro;
+2. a una instancia creada en la shell se le pueden modificar sus atributos, y luego de guardados con .save() los cambios se verán en la dbshell
+3. la instancia se puede tambien eliminar en la shell con .delete()
+
+nota
+---
+makemigrations y migrate es necesario al crear nuevos modelos y/o modificar sus atributos, no fue necesario al modificar el metodo __str__()
+
 
 
