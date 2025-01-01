@@ -31,7 +31,10 @@ Clase 2 - video 6 - Gestión de Modelos y Bases de Datos en Django con SQLite
 5. en app_folder/migrations/ se crea un archivo con la clase Carro que tiene un id y un title
 6. exploracion de settings.py, particularmente DATABASES
 7. comandos .tables y .schema first_app_carro (<app_name>_<model_name>) dentro de ./manage.py dbshell
-*. para el paso 7 es necesario sudo apt install sqlite3
+
+nota
+---
+Para abrir la dbshell es necesario sudo apt install sqlite3
 
 
 Clase 3 - video 7 - Inserción de Datos con Django
@@ -85,4 +88,27 @@ Clase 5 - video 9 - Creación y Gestión de Relaciones entre Modelos en Django
 nota
 ---
 Se relacionó la clase Libro con la clase Editor, de forma "uno a muchos", un editor a muchos libros
+
+
+Clase 6 - video 10 - Relaciones Muchos a Muchos (N:N) en Django
+---------------------------------------------------------------
+
+- Campo de relacion models.ManyToManyField(Autor, related_name="autores")
+
+1. crear nuevo modelo Autor para la relacion de muchos a muchos con Libros
+2. la clase Autor debe estar antes que Libros ya que se *relaciona* en Libros
+3. makemigrations y migrate, esto crea una nueva tabla de relaciones entre Libro y Autor
+4. abrir la shell y crear instancias de Autor a1 y a2 (guardarlas o luego no se podran relacionar en la db)
+5. seleccionar el libro creado en la sesion anterior con:
+	lib = Libro.objects.first()
+6. asignar los autores a  con:
+	lib.autores_atrib.set([a1, a2])
+7. ya se puede ver contenido en la tabla de relaciones libro_autores_atrib en la dbshell
+
+nota
+---
+Luego del paso 6, si se hace lib.save() se modifica db.sqlite3, pero no pude identificar qué cambió. No hay cambios aparentes en las tablas de libro ni en la de libro_autores_atrib. Entonces, ya se habian creado las relaciones en la tabla libro_autores_atrib, pero aun asi al hacer lib.save() algo mas cambió en la db. 
+
+
+
 

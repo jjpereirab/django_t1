@@ -16,10 +16,18 @@ class Editor(models.Model):
     def __str__(self):
         return self.nombre
     
+class Autor(models.Model):
+    nombre = models.TextField(max_length=200)
+    fecha_nacimiento = models.DateField()
+
+    def __str__(self):
+        return self.nombre
+
 class Libro(models.Model):
     titulo = models.TextField(max_length=200)
     fecha_publicacion = models.DateField()
     editor = models.ForeignKey(Editor, on_delete=models.CASCADE)
+    autores_atrib = models.ManyToManyField(Autor, related_name='autores')
 
     def __str__(self):
         return self.titulo
