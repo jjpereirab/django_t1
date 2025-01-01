@@ -8,3 +8,18 @@ class Carro(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.year} - {self.color}"
+    
+class Editor(models.Model):
+    nombre = models.TextField(max_length=200)
+    direccion = models.TextField(max_length=200)
+
+    def __str__(self):
+        return self.nombre
+    
+class Libro(models.Model):
+    titulo = models.TextField(max_length=200)
+    fecha_publicacion = models.DateField()
+    editor = models.ForeignKey(Editor, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.titulo

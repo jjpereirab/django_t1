@@ -65,4 +65,24 @@ nota
 makemigrations y migrate es necesario al crear nuevos modelos y/o modificar sus atributos, no fue necesario al modificar el metodo __str__()
 
 
+Clase 5 - video 9 - Creación y Gestión de Relaciones entre Modelos en Django
+----------------------------------------------------------------------------
+
+- Campo de fecha model.DateField()
+- Atributo de relacion entre tablas, model.ForeignKey()
+
+1. crear nuevos modelos Editor y Libro, y un atributo en Libro que lo relaciona con Editor
+2. Libro tiene un atributo de tipo fecha, usando un nuevo tipo de campo de django models.DateField()
+3. en este caso el atributo de relacion en Libro tiene un parametro on_delete=models.CASCADE, lo que significa que al borrar un Editor entonces todos sus libros se borrarán tambien. Otros valores de on_delete son DO_NOTHING y PROTECT
+4. makemigrations y migrate, y pip install ipython para mejorar la shell
+5. crear instancias de Editor y Libro, primero Editor, luego en Libro en el atributo que lo relaciona con editor se pone la instancia recien creada de Editor. i.e.
+	edi = Editor(nombre="un nombre", direccion="una direccion")
+	edi.save()
+	lib = Libro(titulo="un titulo", fecha_publicacion="2024-12-31", editor=edi)
+	lib.save()
+6. ver en la dbshell
+
+nota
+---
+Se relacionó la clase Libro con la clase Editor, de forma "uno a muchos", un editor a muchos libros
 
