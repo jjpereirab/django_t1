@@ -1,10 +1,13 @@
 https://platzi.com/cursos/django/
 
+Clases 1-4
+----------
+
 - Creacion de python env y posterior instalación de ultima version de Django
 - Arquitectura MVT, model-view-template, como estructura de desarrollo web en django
 
 
-Clase 1 - video 5 - Introducción a Modelos y Bases de Datos
+Clase 5 - Introducción a Modelos y Bases de Datos
 -----------------------------------------------------------
 
 1. crear proyecto con django-admin startproject <name> 
@@ -16,7 +19,7 @@ Clase 1 - video 5 - Introducción a Modelos y Bases de Datos
 7. crear una url en urls y pasarle la Vista
 
 
-Clase 2 - video 6 - Gestión de Modelos y Bases de Datos en Django con SQLite
+Clase 6 - Gestión de Modelos y Bases de Datos en Django con SQLite
 ----------------------------------------------------------------------------
 
 - Tablas y dbshell
@@ -36,7 +39,7 @@ nota
 Para abrir la dbshell es necesario sudo apt install sqlite3
 
 
-Clase 3 - video 7 - Inserción de Datos con Django
+Clase 7 - Inserción de Datos con Django
 -------------------------------------------------
 
 1. crear nuevo atributo (año) en la clase de models.py, como nuevo campo en una tabla
@@ -54,7 +57,7 @@ tarea: agregar atributo color a Carro y guardar instancias en base de datos
 3. nuevas instancias de Carro guardadas
 
 
-Clase 4 - video 8 - Actualización y Eliminación de Datos en Django
+Clase 8 - Actualización y Eliminación de Datos en Django
 ------------------------------------------------------------------
 
 1. en la dbshell se ven las tablas con .tables, admite sql syntax, mostrando la tabla en terminal con:
@@ -67,7 +70,7 @@ nota
 makemigrations y migrate es necesario al crear nuevos modelos y/o modificar sus atributos, no fue necesario al modificar el metodo __str__()
 
 
-Clase 5 - video 9 - Creación y Gestión de Relaciones entre Modelos en Django
+Clase 9 - Creación y Gestión de Relaciones entre Modelos en Django
 ----------------------------------------------------------------------------
 
 - Campo de fecha models.DateField()
@@ -89,7 +92,7 @@ nota
 Se relacionó la clase Libro con la clase Editor, de forma "uno a muchos", un editor a muchos libros
 
 
-Clase 6 - video 10 - Relaciones Muchos a Muchos (N:N) en Django
+Clase 10 - Relaciones Muchos a Muchos (N:N) en Django
 ---------------------------------------------------------------
 
 - Campo de relacion models.ManyToManyField(Autor, related_name="autores")
@@ -109,7 +112,7 @@ nota
 Luego del paso 6, si se hace lib.save() se modifica db.sqlite3, pero no pude identificar qué cambió. No hay cambios aparentes en las tablas de libro ni en la de libro_autores_atrib. Entonces, ya se habian creado las relaciones en la tabla libro_autores_atrib, pero aun asi al hacer lib.save() algo mas cambió en la db. 
 
 
-Clase 7 - video 11 - Relaciones Uno a Uno (1:1) en Django
+Clase 11 - Relaciones Uno a Uno (1:1) en Django
 ---------------------------------------------------------
 
 - Atributo models.URLField()
@@ -122,5 +125,9 @@ Clase 7 - video 11 - Relaciones Uno a Uno (1:1) en Django
 	p = Perfil(website="www.aubrey.com", biografia="la biografia de Aubrey en bio del website", autor=au)
 	p.save()
 4. ya se puede verificar en la base de datos
+
+
+Clase 12 - Queries y Filtros en Django: Optimización y Estrategias Avanzadas
+----------------------------------------------------------------------------
 
 
