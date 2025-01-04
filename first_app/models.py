@@ -23,6 +23,14 @@ class Autor(models.Model):
     def __str__(self):
         return self.nombre
 
+class Perfil(models.Model):
+    website = models.URLField()
+    biografia = models.TextField(max_length=500)
+    autor = models.OneToOneField(Autor, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.website} - {self.autor.nombre}"
+
 class Libro(models.Model):
     titulo = models.TextField(max_length=200)
     fecha_publicacion = models.DateField()
