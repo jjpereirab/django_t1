@@ -120,7 +120,7 @@ Clase 11 - Relaciones Uno a Uno (1:1) en Django
 
 1. nuevo modelo Perfil para relacionar con Autor, con la relacion 1:1 models.OneToOneField(Autor, on_delete=models.CASCADE), si se borra el autor, se borrará su perfil
 2. makemigratios y migrate
-3. tomar el primer objecto de Autor y asociarlo a una nueva instancia de Perfil:
+3. tomar el primer objeto de Autor y asociarlo a una nueva instancia de Perfil:
 	au = Autor.objects.first()
 	p = Perfil(website="www.aubrey.com", biografia="la biografia de Aubrey en bio del website", autor=au)
 	p.save()
@@ -130,4 +130,12 @@ Clase 11 - Relaciones Uno a Uno (1:1) en Django
 Clase 12 - Queries y Filtros en Django: Optimización y Estrategias Avanzadas
 ----------------------------------------------------------------------------
 
+- Django Managers
+	Model.objects.[ count(), first(), last(), all(), get(by_arg), filter(by_arg), create(args), update(args) ]
+- para .create(args) se puede usar Model?? en ipython para ver los argumentos
+- Model.objects.create(args) guarda la instancia automaticamente, sin necesidad de .save()
+- get(by_arg) retorna un objeto, mientras filter(by_arg) retorna una lista 
+- A .all() o .filter() que retornan listas, se les puede concatenar .order_by("model_attrib"). e.g.
+	Autor.objects.all().order_by("nombre")
+	
 
