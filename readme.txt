@@ -137,5 +137,34 @@ Clase 12 - Queries y Filtros en Django: Optimización y Estrategias Avanzadas
 - get(by_arg) retorna un objeto, mientras filter(by_arg) retorna una lista 
 - A .all() o .filter() que retornan listas, se les puede concatenar .order_by("model_attrib"). e.g.
 	Autor.objects.all().order_by("nombre")
-	
+- para hacer el order_by() en orden descending del atributo
+	Autor.objects.all().order_by("-nombre")
+
+
+Clase 13 - Gestión de URLs en Django: Configuración, Rutas y Mejores Prácticas
+------------------------------------------------------------------------------
+- path converters (slug, uuid, ...) https://docs.djangoproject.com/en/5.0/topics/http/urls/#path-converters
+- exploracion de args y kwargs en vistas
+- from django.http import HttpResponse
+
+1. crear <app_folder>/urls.py 
+2. incluir este modulo en <project_folder>/urls.py (from django.urls import include)
+
+mas en <app_folder>/urls.py:
+3. crear vista de prueba vista_prueba
+4. agregar urlspatterns con path converters <int:id> y <str:marca> llamando vista_prueba
+5. hacer ./manage.py runserver y verificar urls
+
+tarea: crear vista que llame informacion de Perfil y Autor mediante kwargs["id"] 
+'''''
+En <app_folder>/urls.py
+	def vista_autor(request, *args, **kwargs):
+	    print(args)
+	    print(kwargs)
+	    author = Autor.objects.get(id=kwargs['id'])
+	    profile = Perfil.objects.get(autor_id=kwargs['id'])
+	    return HttpResponse(f"Autor: {author.nombre} - Website: {profile.website} - Biografia: {profile.biografia} ")
+	    
+- en urlspatterns: path('autor/<int:id>', vista_autor), se verifica el funcionamiento de la url con runserver
+
 
