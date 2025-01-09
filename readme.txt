@@ -8,7 +8,7 @@ Clases 1-4
 
 
 Clase 5 - Introducción a Modelos y Bases de Datos
------------------------------------------------------------
+-------------------------------------------------
 
 1. crear proyecto con django-admin startproject <name> 
 2. crear app en project_folder/ con python manage.py startapp <name>
@@ -20,7 +20,7 @@ Clase 5 - Introducción a Modelos y Bases de Datos
 
 
 Clase 6 - Gestión de Modelos y Bases de Datos en Django con SQLite
-----------------------------------------------------------------------------
+------------------------------------------------------------------
 
 - Tablas y dbshell
 - Django ORM, object-relational mapping, una conexion entre bases de datos y objetos de python
@@ -40,7 +40,7 @@ Para abrir la dbshell es necesario sudo apt install sqlite3
 
 
 Clase 7 - Inserción de Datos con Django
--------------------------------------------------
+---------------------------------------
 
 1. crear nuevo atributo (año) en la clase de models.py, como nuevo campo en una tabla
 2. makemigrations luego del cambio, solucion del error al crear un nuevo campo que no puede ser nulo por defecto. Agregar nuevo parametro al año (null=True)
@@ -58,7 +58,7 @@ tarea: agregar atributo color a Carro y guardar instancias en base de datos
 
 
 Clase 8 - Actualización y Eliminación de Datos en Django
-------------------------------------------------------------------
+--------------------------------------------------------
 
 1. en la dbshell se ven las tablas con .tables, admite sql syntax, mostrando la tabla en terminal con:
 	select * from first_app_carro;
@@ -71,7 +71,7 @@ makemigrations y migrate es necesario al crear nuevos modelos y/o modificar sus 
 
 
 Clase 9 - Creación y Gestión de Relaciones entre Modelos en Django
-----------------------------------------------------------------------------
+------------------------------------------------------------------
 
 - Campo de fecha models.DateField()
 - Atributo de relacion entre tablas, model.ForeignKey()
@@ -93,7 +93,7 @@ Se relacionó la clase Libro con la clase Editor, de forma "uno a muchos", un ed
 
 
 Clase 10 - Relaciones Muchos a Muchos (N:N) en Django
----------------------------------------------------------------
+-----------------------------------------------------
 
 - Campo de relacion models.ManyToManyField(Autor, related_name="autores")
 
@@ -113,7 +113,7 @@ Luego del paso 6, si se hace lib.save() se modifica db.sqlite3, pero no pude ide
 
 
 Clase 11 - Relaciones Uno a Uno (1:1) en Django
----------------------------------------------------------
+-----------------------------------------------
 
 - Atributo models.URLField()
 - Campo de relacion models.OneToOneField()
@@ -166,5 +166,24 @@ En <app_folder>/urls.py
 	    return HttpResponse(f"Autor: {author.nombre} - Website: {profile.website} - Biografia: {profile.biografia} ")
 	    
 - en urlspatterns: path('autor/<int:id>', vista_autor), se verifica el funcionamiento de la url con runserver
+
+
+Clase 14 - Vistas Basadas en Clases en Django
+---------------------------------------------
+Se revisa una instancia de HttpRequest en la shell, tiene que ver con las vistas basadas en funciones, donde las funciones siempre tienen "request" como primer argument
+	from django.http import HttpRequest
+	request = HttpRequest()
+	request.__dict__
+
+Sobre las vistas basadas en clases:
+1. mover las vistas creadas en <app_folder>/urls.py a <app_folder>/views.py, con sus dependencias
+2. crear una vista basada en clases en <app_folder>/views.py 
+
+- Se crea MiVistaView, una copia de la vista ya existente mi_vista. Ver las diferencias entre ambas vistas
+- Se utiliza la depencias TemplateView, y el metodo .as_view() en urls
+
+3. se verifica correcto funcionamiento en ./manage.py runserver
+
+
 
 
