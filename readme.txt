@@ -170,6 +170,8 @@ En <app_folder>/urls.py
 
 Clase 14 - Vistas Basadas en Clases en Django
 ---------------------------------------------
+- from django.views.generic import TemplateView
+
 Se revisa una instancia de HttpRequest en la shell, tiene que ver con las vistas basadas en funciones, donde las funciones siempre tienen "request" como primer argument
 	from django.http import HttpRequest
 	request = HttpRequest()
@@ -185,5 +187,26 @@ Sobre las vistas basadas en clases:
 3. se verifica correcto funcionamiento en ./manage.py runserver
 
 
+Clase 15 - Personalización de Interfaz con Plantillas en Django
+---------------------------------------------------------------
+- sobre templates, funcionalidades extra en html
+- {{ var }}, var es la variable que viene en el contexto
+- {{ var | filtro }}, se pueden poner filtros a las variables, e.g.
+	{{ birth_date | date: "M/d" | lower }}
+- Tags, {% tag %}, tag puede ser: if, for, url, block. {% endif, endfor, endblock %} para cerrar {% if, for, block %}
+- Layouts, para reutilizar trozos de html en otros html
+
+Uso de Layouts
+''''''''''''''
+1. En el html "layout.html", que debe tener una estructura tipica, poner: 
+	{% block b1 %}
+	...
+	{% endblock %}
+2. Luego en "otro.html", su contenido puede ser solo:
+	{% extends "layout.html" %}
+	{% block b1 %}
+   	cualquier contenido
+	{% endblock %}
+3. Luego "otro.html" entregará todo lo que tiene "layout.html" reemplazando "..." con "cualquier contenido" 
 
 
