@@ -188,7 +188,7 @@ Sobre las vistas basadas en clases:
 
 
 Clase 15 - Personalización de Interfaz con Plantillas en Django
----------------------------------------------------------------
+-------------------------------------------------------------------------------------
 - sobre templates, funcionalidades extra en html
 - {{ var }}, var es la variable que viene en el contexto
 - {{ var | filtro }}, se pueden poner filtros a las variables, e.g.
@@ -210,3 +210,6 @@ Uso de Layouts
 3. Luego "otro.html" entregará todo lo que tiene "layout.html" reemplazando "..." con "cualquier contenido" 
 
 
+Clase 16 - Configuración del Proyectos en Django
+--------------------------------------------------------------------
+Ver repo https://github.com/jjpereirab/django_t2
